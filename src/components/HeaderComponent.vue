@@ -27,8 +27,7 @@
             </n-popover>
             <n-dropdown trigger="hover" :options="userDropdownOptions">
                 <n-button quaternary size="large" class="avatar-container">
-                    <n-avatar round size="large"
-                        src="https://cdn.pixabay.com/photo/2011/03/21/10/45/pig-5652_1280.jpg"
+                    <n-avatar round size="large" src="https://cdn.pixabay.com/photo/2011/03/21/10/45/pig-5652_1280.jpg"
                         style="cursor: pointer;"></n-avatar>
                     <div class="text-container">
                         <n-performant-ellipsis style="max-width: 90px">
