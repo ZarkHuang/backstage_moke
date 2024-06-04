@@ -27,7 +27,7 @@ const currentYear = currentDate.getFullYear();
 
 // 控制台输出
 const chmlFrpPanel =
- `
+  `
  .--,       .--,
  ( (   .---./  ) )
   '.__/o   o__.'
@@ -37,10 +37,8 @@ const chmlFrpPanel =
     //       \\
    //|   .   |\\____/ so99 開案!
 `
-;
+  ;
 console.info(chmlFrpPanel);
-console.info(`Copyright 2021 - ${currentYear} TechCat All rights reserved.`);
-
 const themeStore = useThemeStore();
 
 const computedTheme = computed(() => {

@@ -63,8 +63,7 @@
                         若無填寫個人資訊，將無法進一步操作網頁內容。
                     </n-alert>
                     <n-alert title="提示" type="info" style="margin-top: 10px">
-                        如果這裡沒有您想了解的，可以前往<n-button text tag="a" href="#" target="_blank"
-                            type="primary">
+                        如果這裡沒有您想了解的，可以前往<n-button text tag="a" href="#" target="_blank" type="primary">
                             長佳智能官網
                         </n-button>或洽詢工程師
                     </n-alert>
