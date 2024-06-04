@@ -91,7 +91,11 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/pages/Other/AboutPage.vue'),
       },
     ]
-  }
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/home',
+  },
   // {
   //   path: '/login',
   //   name: '登錄',
