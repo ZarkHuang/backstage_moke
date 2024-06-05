@@ -1,27 +1,11 @@
 import { h, Component } from 'vue';
 import { RouterLink } from 'vue-router';
 import { NIcon, MenuOption } from 'naive-ui';
-import {
-  StatsChartOutline,
-  DocumentTextOutline,
-  CloudDownloadOutline,
-  GridOutline,
-  ListOutline,
-  HomeOutline,
-  PersonCircleOutline,
-  ExtensionPuzzleOutline,
-  InformationCircleOutline,
-  EllipsisHorizontalCircleOutline,
-  LinkOutline,
-  PawOutline,
-  PrismOutline,
-  PricetagOutline,
-  PlanetOutline
-} from '@vicons/ionicons5';
+import SvgIcon from '@/components/Icons/SvgIcon.vue';
 
-// 菜单图标渲染函数
-function renderIcon(icon: Component) {
-  return () => h(NIcon, null, { default: () => h(icon) });
+// 菜單Icon渲染的函數
+function renderIcon(icon: string) {
+  return () => h(NIcon, { size: 24 }, { default: () => h(SvgIcon, { icon }) });
 }
 
 /// 菜單選項數組
@@ -35,7 +19,7 @@ export const menuOptions: MenuOption[] = [
       { default: () => '首頁' }
     ),
     key: '首頁',
-    icon: renderIcon(HomeOutline)
+    icon: renderIcon('House')
   },
   {
     type: 'divider',
@@ -52,12 +36,12 @@ export const menuOptions: MenuOption[] = [
       { default: () => '個人資料' }
     ),
     key: '個人資料',
-    icon: renderIcon(PersonCircleOutline)
+    icon: renderIcon('Users')
   },
   {
     label: '功能管理',
     key: '功能管理',
-    icon: renderIcon(ListOutline),
+    icon: renderIcon('UserGear'),
     children: [
       {
         label: () => h(
@@ -68,7 +52,7 @@ export const menuOptions: MenuOption[] = [
           { default: () => '功能列表' }
         ),
         key: '功能列表',
-        icon: renderIcon(GridOutline)
+        icon: renderIcon('CheckItem')
       },
       {
         label: () => h(
@@ -79,7 +63,7 @@ export const menuOptions: MenuOption[] = [
           { default: () => '配置文件' }
         ),
         key: '配置文件',
-        icon: renderIcon(DocumentTextOutline)
+        icon: renderIcon('CheckItem')
       },
       {
         label: () => h(
@@ -90,7 +74,7 @@ export const menuOptions: MenuOption[] = [
           { default: () => '節點狀態' }
         ),
         key: '節點狀態',
-        icon: renderIcon(StatsChartOutline)
+        icon: renderIcon('CheckItem')
       },
       {
         label: () => h(
@@ -101,14 +85,14 @@ export const menuOptions: MenuOption[] = [
           { default: () => '下載' }
         ),
         key: '下載',
-        icon: renderIcon(CloudDownloadOutline)
+        icon: renderIcon('CheckItem')
       }
     ]
   },
   {
-    label: '擴展功能',
-    key: '擴展功能',
-    icon: renderIcon(ExtensionPuzzleOutline),
+    label: '用戶資料',
+    key: '用戶資料',
+    icon: renderIcon('CheckItem'),
     children: [
       {
         label: () => h(
@@ -119,14 +103,14 @@ export const menuOptions: MenuOption[] = [
           { default: () => '免費域名' }
         ),
         key: '免費域名',
-        icon: renderIcon(LinkOutline)
+        icon: renderIcon('CheckItem')
       }
     ]
   },
   {
     label: '增值中心',
     key: '增值中心',
-    icon: renderIcon(PrismOutline),
+    icon: renderIcon('Analyze'),
     children: [
       {
         label: () => h(
@@ -137,7 +121,7 @@ export const menuOptions: MenuOption[] = [
           { default: () => '購買點數卡' }
         ),
         key: '購買點數卡',
-        icon: renderIcon(PlanetOutline)
+        icon: renderIcon('Analyze')
       },
       {
         label: () => h(
@@ -148,7 +132,7 @@ export const menuOptions: MenuOption[] = [
           { default: () => '積分商城' }
         ),
         key: '積分商城',
-        icon: renderIcon(PricetagOutline)
+        icon: renderIcon('Analyze')
       },
       {
         label: () => h(
@@ -159,14 +143,14 @@ export const menuOptions: MenuOption[] = [
           { default: () => '消費記錄' }
         ),
         key: '消費記錄',
-        icon: renderIcon(PawOutline)
+        icon: renderIcon('Analyze')
       }
     ]
   },
   {
     label: '其他資訊',
     key: '其他資訊',
-    icon: renderIcon(EllipsisHorizontalCircleOutline),
+    icon: renderIcon('CircleWarning'),
     children: [
       {
         label: () => h(
@@ -177,7 +161,7 @@ export const menuOptions: MenuOption[] = [
           { default: () => '其他' }
         ),
         key: '其他',
-        icon: renderIcon(InformationCircleOutline)
+        icon: renderIcon('CircleWarning')
       },
     ]
   },

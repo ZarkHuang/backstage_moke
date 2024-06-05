@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <!-- 将n-select替换为n-switch -->
     <n-divider>
       主题
     </n-divider>

@@ -24,7 +24,6 @@
                     </n-button>
                 </template>
                 <span>面板設置</span>
-
             </n-popover>
             <n-dropdown trigger="hover" :options="userDropdownOptions">
                 <n-button quaternary size="large" class="avatar-container">
@@ -63,14 +62,14 @@ import {
     MenuOutline
 } from '@vicons/ionicons5'
 
-// UserDropdown图标函数
+// UserDropdown圖標函樹
 const renderIcon = (icon: Component, color?: string) => {
     return () => {
         return h(NIcon, { size: '24', color }, { default: () => h(icon) });
     };
 };
 
-// 纯内容渲染-用戶基本資料
+// 內容渲染 - 用戶基本資料
 function renderCustomHeader() {
     return h(
         'div',
