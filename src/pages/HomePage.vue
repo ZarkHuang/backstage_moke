@@ -123,7 +123,7 @@ const updateChart = (index: number) => {
             yAxis: {
                 type: 'value',
                 axisLabel: {
-                    formatter: '{value} M',
+                    formatter: '{value}',
                     color: themeVars.value.textColorBase,
                 },
             },
@@ -144,7 +144,8 @@ const updateChart = (index: number) => {
                     symbol: ['none', 'circle'], // 取消箭頭，使用圓圈
                     symbolSize: [0, 10], // 圓圈大小
                     label: {
-                        position: 'insideEnd' // 設置標籤位置
+                        position: 'insideEndTop', // 設置標籤位置
+                        color:'red'
                     }
                 },
                 emphasis: {
