@@ -3,7 +3,7 @@
         <n-space class="center-aligned" justify="space-between">
             <n-popover trigger="hover">
                 <template #trigger>
-                    <n-button quaternary style="font-size: 18px;" @click="ThemeSwitcherDrawer('right')">
+                    <n-button quaternary style="font-size: 24px;" @click="ThemeSwitcherDrawer('right')">
                         <n-icon :component="MenuOutline" style="cursor: pointer;"></n-icon>
                     </n-button>
                 </template>

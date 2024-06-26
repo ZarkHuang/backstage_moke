@@ -3,15 +3,19 @@
     <n-flex vertical>
         <n-grid cols="1 s:2 m:4" responsive="screen" :x-gap="15" :y-gap="18">
             <n-gi v-for="(card, index) in cards" :key="index">
-                <n-card :style="cardStyle"size="small">
+                <n-card :style="cardStyle" size="small">
                     <n-flex justify="space-between" align="center">
-                        <n-icon size="24">
-                            <component :is="card.icon" />
-                        </n-icon>
-                        <p>{{card.title}}</p>
+
+                        <div style="display: flex; align-items: center; justify-content: center"> 
+                        <n-icon size="20" style="margin-right: 8px; padding-top: 2px;">
+                                <component :is="card.icon" />
+                            </n-icon>
+                            <p class="calmTitle">{{ card.title }}</p>
+                        </div>
 
                         <n-statistic tabular-nums>
-                            <n-number-animation :from="0" :to="card.value" :precision="card.precision" :duration="4000"/>
+                            <n-number-animation :from="0" :to="card.value" :precision="card.precision"
+                                :duration="4000" />
                             <template v-if="card.suffix" #suffix>
                                 {{ card.suffix }}
                             </template>
@@ -21,13 +25,13 @@
             </n-gi>
 
             <n-gi>
-                <n-card size="small" style="width: 100%; height: 106px;">
+                <n-card size="small" style="width: 100%; height: 120px;">
                     <div class="timeStyle">現在時間：{{ currentTime }}</div>
                 </n-card>
             </n-gi>
         </n-grid>
 
-        <n-grid style="margin-top: 12px" cols="1 s:2 m:3" responsive="screen" :x-gap="15" :y-gap="20">
+        <n-grid style="margin-top: 8px" cols="1 s:2 m:3" responsive="screen" :x-gap="15" :y-gap="20">
             <n-gi v-for="(chart, index) in charts" :key="index">
                 <n-card>
                     <div :id="'chart' + index" style="width: 100%; height: 284px;"></div>
@@ -37,7 +41,7 @@
                 <n-card size="small">
                     <div class="fontStyle"><strong>{{ tableTitle }}</strong></div>
                     <div class="table-container">
-                        <n-data-table :columns="tableColumns" :data="tableData"/>
+                        <n-data-table :columns="tableColumns" :data="tableData" />
                     </div>
                 </n-card>
             </n-gi>
@@ -60,10 +64,19 @@ const styleStore = useStyleStore();
 const cardStyle = computed(() => styleStore.getCardStyle());
 const router = useRouter();
 const cards = [
-    { title: '完成檢查人數', value: 82, icon: LinkOutline, precision: 0 },
-    { title: '完成報到人數', value: 17 , icon: ArrowUpCircleOutline, precision: 0 },
-    { title: '平均等待時間', value: 2, icon: ArrowDownCircleOutline, precision: 0 },
+    { title: '完成檢查人數', value: 82, icon: LinkOutline, precision: 0, suffix: '人' },
+    { title: '完成報到人數', value: 17, icon: ArrowUpCircleOutline, precision: 0, suffix: '人' },
+    { title: '平均等待時間', value: 2, icon: ArrowDownCircleOutline, precision: 0, suffix: '分鐘' },
 ];
+
+
+// const cards = [
+//     { title: '連接數', value: 214, icon: LinkOutline, precision: 0 },
+//     { title: '總上傳', value: 12.43, icon: ArrowUpCircleOutline, precision: 2, suffix: 'TiB' },
+//     { title: '總下載', value: 31.79, icon: ArrowDownCircleOutline, precision: 2, suffix: 'TiB' },
+//     { title: '積分數', value: 241248, icon: ServerOutline, precision: 0 },
+// ]
+
 
 const charts = chartOptions;
 
@@ -116,7 +129,7 @@ const updateChart = (index: number) => {
             },
             series: charts[index].data.series.map((seriesData) => ({
                 name: seriesData.name,
-                type: 'bar', 
+                type: 'bar',
                 data: seriesData.data,
                 itemStyle: {
                     color: seriesData.color || themeVars.value.primaryColor,
@@ -181,10 +194,10 @@ const tableColumns = [
     { title: '預期結束時間', key: 'checkOut' },
 ];
 const tableData = [
-    { sort: '1', id: 'B135876443' , name:'楊明昌' , serverTime:'5時 : 37分', checkIn:'AM 09:00' , checkOut:'PM 15:37'},
-    { sort: '2', id: 'L221879655' , name:'張容玲' , serverTime:'5時 : 37分', checkIn:'AM 09:00' , checkOut:'PM 15:37'},
-    { sort: '3', id: 'B167864325' , name:'陳怡君' , serverTime:'5時 : 37分', checkIn:'AM 09:00' , checkOut:'PM 15:37'},
-    { sort: '4', id: 'I187224311' , name:'林佩君' , serverTime:'5時 : 37分', checkIn:'AM 09:00' , checkOut:'PM 15:37'},
+    { sort: '1', id: 'B135876443', name: '楊明昌', serverTime: '5時 : 37分', checkIn: 'AM 09:00', checkOut: 'PM 15:37' },
+    { sort: '2', id: 'L221879655', name: '張容玲', serverTime: '5時 : 37分', checkIn: 'AM 09:00', checkOut: 'PM 15:37' },
+    { sort: '3', id: 'B167864325', name: '陳怡君', serverTime: '5時 : 37分', checkIn: 'AM 09:00', checkOut: 'PM 15:37' },
+    { sort: '4', id: 'I187224311', name: '林佩君', serverTime: '5時 : 37分', checkIn: 'AM 09:00', checkOut: 'PM 15:37' },
     // 添加更多數據以進行滾動測試
     { sort: '5', id: 'C222333444', name: '李小明', serverTime: '4時 : 45分', checkIn: 'AM 08:30', checkOut: 'PM 13:15' },
     { sort: '6', id: 'D555666777', name: '王大華', serverTime: '6時 : 10分', checkIn: 'AM 09:15', checkOut: 'PM 15:25' },
@@ -196,6 +209,14 @@ const tableData = [
 </script>
 
 <style>
+.calmTitle{
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 16px !important;
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: black;
+}
+
 .fontStyle {
     font-family: "Noto Sans TC", sans-serif;
     font-size: 19px !important;
@@ -217,6 +238,6 @@ const tableData = [
 
 .table-container {
     max-height: 240px;
-    overflow-y: auto; 
+    overflow-y: auto;
 }
 </style>
