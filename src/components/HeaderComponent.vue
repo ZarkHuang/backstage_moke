@@ -12,8 +12,9 @@
         </n-space>
 
         <span
-            :style="{ display: isHidden ? 'none' : 'flex', color: themeStore.primaryColor, marginLeft:'-24px' , fontSize: '18px', transition: 'color 0.2s' }">
-            智慧健檢排程戰情中心
+            style="font-weight:900;"
+            :style="{ display: isHidden ? 'none' : 'flex', marginLeft:'-24px' , fontSize: '24px', transition: 'color 0.2s' }">
+            <strong>智慧健檢排程戰情中心</strong>
         </span>
         <div :style="{ display: isHidden ? 'flex' : 'none' }">
             <n-dropdown size="large" :options="menuOptions">
